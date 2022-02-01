@@ -1,0 +1,28 @@
+{
+  "name": "churchapp",
+  "version": "1.0.0",
+  "description": "An app that manage church information",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andres1394s/ChurchApp.git"
+  },
+  "keywords": [
+    "church",
+    "nodejs",
+    "javacript"
+  ],
+  "author": "Andres Aparicio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andres1394s/ChurchApp/issues"
+  },
+  "homepage": "https://github.com/andres1394s/ChurchApp#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mysql": "^2.18.1"
+  }
+}
