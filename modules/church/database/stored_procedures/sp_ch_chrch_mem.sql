@@ -1,10 +1,11 @@
 /*
 procedure name: sp_ch_church
 This procedure manage the data from backend for insert, update, logical delete
-Logical delete its about change the status of member for example from Active to Inactive, not fisical delete
+
 
 Andres Aparicio 03/02/2022 Initial Creation
-Andres Aparicio 15/02/2022 Update Operation
+Andres Aparicio 15/02/2022 Update and query Operation
+Andres Aparicio 15/02/2022 Delete operation
 */
 delimiter //
 use churchapp;
@@ -25,6 +26,7 @@ out o_rowcount int,
 out o_return int )
 sp_lbl: 
 begin
+/*Variables for data manipulation (Futures Releases)*/
 declare w_sp_name varchar(34) default 'sp_ch_chrch_mem';
 declare w_cm_ced_id varchar(16);
 declare w_today datetime;
@@ -90,9 +92,16 @@ if i_operation = 'C' then
  set o_rowcount = found_rows();
  
 end if ; /* i_operation = 'C'*/
-  
+
+if i_operation = 'D'  then
+   delete 
+   from c_member
+   where i_cm_ced_id = i_cm_ced_id;
+
+end if ; /* i_operation = 'D'*/
+
 end ; /*lbl_manage*/
-  
+
   if w_return <> 0 then
    call sp_error(w_return,w_sp_name);
   end if ;
