@@ -37,11 +37,14 @@ declare w_return int;
 lbl_manage: 
 begin 
 
-select *  from c_member
-where cm_ced_id = i_cm_ced_id; 
+if i_operation = 'I' then /*Verify if exists the id for change the operation for update if exists*/
 
-if found_rows() > 0 then
-set i_operation = 'U';
+  select * from c_member
+  where cm_ced_id = i_cm_ced_id; 
+  if found_rows() > 0 then
+     set i_operation = 'U';
+  end if ;
+ 
 end if;
 
 if i_operation = 'I' /*Operation for insert */ then
@@ -60,7 +63,8 @@ if i_operation = 'U' then
   set cm_first_name = i_cm_first_name,
       cm_ced_id = i_cm_ced_id ,
       cm_last_name = i_cm_last_name,
-      cm_number_phone =i_cm_number_phone ,
+      cm_number_phone =i_cm_number_phone,
+      cm_address = i_cm_address,
       cm_born_date = i_cm_born_date,
       cm_mod_by = s_userid,
       cm_mod_date = now()
@@ -84,8 +88,8 @@ if i_operation = 'C' then
       c_church_id as 'CHURCH_ID',
       cm_created_by as 'CREATED_BY',
       cm_creation_date as 'CREATION_DATE',
-      cm_mod_by as 'MODIFICADO_POR',
-      cm_mod_date as 'FECHA_MODIFICACION'  
+      cm_mod_by as 'MODIFIED_BY',
+      cm_mod_date as 'MOD_DATE'  
   from c_member
   where i_cm_ced_id = i_cm_ced_id;
  
