@@ -1,11 +1,20 @@
-const config = {
-    db: {
-      /* don't expose password or any sensitive info, done only for demo */
-      host: "localhost",
-      user: "root",
-      password: "localtest",
-      database: "churchapp",
-      multipleStatements : true
-    },
-  };
-  module.exports = config;
+const mysql = require('mysql2/promise');
+class DBConnection {
+  async getConnection() {
+     try {
+       return await mysql.createConnection({
+              host: 'localhost',
+              user: 'root',
+              password: 'localtest',
+              database: 'churchapp',
+              multipleStatements : true  
+       });
+       
+    }
+    catch(error) {
+      console.log(error);
+    }
+  }
+  
+}
+module.exports = new DBConnection();
