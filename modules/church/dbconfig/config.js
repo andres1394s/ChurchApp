@@ -1,10 +1,11 @@
-const mysql = require('mysql'); 
-var mysqlConnection = mysql.createConnection({  
-    host: 'localhost',  
-    user : 'root',  
-    password : 'localtest',   
-    database : 'churchapp',  
-    multipleStatements : true  
-});  
-
-module.exports = mysqlConnection;
+const config = {
+    db: {
+      /* don't expose password or any sensitive info, done only for demo */
+      host: "localhost",
+      user: "root",
+      password: "localtest",
+      database: "churchapp",
+      multipleStatements : true
+    },
+  };
+  module.exports = config;
