@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/andres1394s/ChurchApp#readme",
   "dependencies": {
+    "body-parser": "^1.19.2",
     "express": "^4.17.2",
     "mysql": "^2.18.1"
   }
