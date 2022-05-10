@@ -85,6 +85,21 @@ if i_operation = 'C' then
  
 end if ; /* i_operation = 'C'*/
 
+if i_operation = 'C1' then /* get all churchs...*/
+  select 
+      ch_name as 'CHURCH_NAME',
+      ch_status as 'CHURCH_STATUS' ,
+      ch_location as 'CHURCH_LOCATION_DETAIL',
+      c_location_cl_id as 'PROVINCE_LOCATION',
+      ch_creation_date as 'CREATION_DATE',
+      ch_created_by as 'CREATED_BY',
+      ch_mod_date as 'LAST_MODIFICATION',
+      ch_mod_by as 'MODIFIED_BY'
+  from c_church;
+
+ set o_rowcount = found_rows();
+ 
+end if ; /* i_operation = 'C1'*/
 if i_operation = 'D'  then
    delete 
    from c_church

@@ -1,10 +1,13 @@
 const church = require('./church');
 const express = require('express');
 const router = express.Router();
+
 class ChurchController {
     constructor(app) {
-      router.get('/', church.getAllChurchs);
-      app.use('/api/v1/products', router);
+      //Church-routes//
+      router.get('/Churchs', church.getAllChurchs);
+      router.get('/Info', church.getChurchInfo);
+      app.use('/church', router);
     }
  }
 module.exports = ChurchController;

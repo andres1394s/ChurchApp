@@ -5,7 +5,7 @@ class DBConnection {
        return await mysql.createConnection({
               host: 'localhost',
               user: 'root',
-              password: 'localtest',
+              password: 'root',
               database: 'churchapp',
               multipleStatements : true  
        });
