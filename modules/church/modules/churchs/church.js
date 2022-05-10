@@ -10,5 +10,16 @@ class church {
       console.log(error);
     }
  }
+
+ async getChurchInfo(req,res) {
+   try {
+       const output = await ChurchMysql.getChurchInfo();
+      res.send(output);
+   
+   }
+   catch (error) {
+   console.log(error);
+ }
+}
 }
 module.exports = new church();
