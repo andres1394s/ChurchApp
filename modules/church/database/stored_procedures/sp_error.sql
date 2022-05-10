@@ -20,7 +20,7 @@ sp_lbl: begin
           from c_error
           where ce_id = i_num; 
           
-  if found_rows() = 0 then
+  if count(*) = 0 then
    select 999999 as "NUM_ERR",
           "ERROR DESCONOCIDO" as 'DESCRIPTION';
  end if;
