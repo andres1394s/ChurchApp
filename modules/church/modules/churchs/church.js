@@ -14,6 +14,7 @@ class church {
 
  async getChurchInfo(req,res) {
    try { 
+    console.log(req.body.id);
     let id  = req.body.id;
     const output = await ChurchMysql.getChurchInfo(id);
     res.send(output);

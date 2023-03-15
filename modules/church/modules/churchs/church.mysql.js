@@ -16,13 +16,13 @@ class ChurchMysql {
     
    }
 
-async getChurchInfo(req)
+async getChurchInfo(id)
 {
 let operation = 'C';
 var sql  = "call sp_ch_chrch (null,?,?,null,null,null,null,@o_rowcount,@o_return);"
 const conn = await mysql.getConnection();
 //console.log(conn);
-let [rows, fields] = await conn.query(sql,[parseInt(req.id),operation]);
+let [rows, fields] = await conn.query(sql,[parseInt(id),operation]);
 console.log(rows);
 return rows
 }
